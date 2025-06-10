@@ -1,0 +1,506 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C957A36A-2A85-4303-A7C6-76AF10731ED9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>BabenNew</RootNamespace>
+    <AssemblyName>BabenNew</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>babenlogopng.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Azure.Core, Version=1.6.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>packages\Azure.Core.1.6.0\lib\net461\Azure.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Azure.Identity, Version=1.3.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>packages\Azure.Identity.1.3.0\lib\netstandard2.0\Azure.Identity.dll</HintPath>
+    </Reference>
+    <Reference Include="DiscordRPC, Version=1.0.175.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\DiscordRichPresence.1.0.175\lib\net35\DiscordRPC.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.SqlClient, Version=4.0.0.0, Culture=neutral, PublicKeyToken=23ec7fc2d6eaa4a5, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Data.SqlClient.4.0.0\lib\net461\Microsoft.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client, Version=4.22.0.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Identity.Client.4.22.0\lib\net461\Microsoft.Identity.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client.Extensions.Msal, Version=2.16.5.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Identity.Client.Extensions.Msal.2.16.5\lib\net45\Microsoft.Identity.Client.Extensions.Msal.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.JsonWebTokens.6.8.0\lib\net461\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Logging.6.8.0\lib\net461\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Protocols.6.8.0\lib\net461\Microsoft.IdentityModel.Protocols.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Protocols.OpenIdConnect.6.8.0\lib\net461\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Tokens.6.8.0\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="MySqlConnector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d33d3e53aa5f8c92, processorArchitecture=MSIL">
+      <HintPath>packages\MySqlConnector.2.1.4\lib\net471\MySqlConnector.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_v2, Version=2.0.7.1395, Culture=neutral, PublicKeyToken=8226ea5df37bcae9, processorArchitecture=MSIL">
+      <HintPath>packages\SQLitePCLRaw.bundle_green.2.0.7\lib\net461\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core, Version=2.0.7.1395, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
+      <HintPath>packages\SQLitePCLRaw.core.2.0.7\lib\netstandard2.0\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.nativelibrary, Version=2.0.7.1395, Culture=neutral, PublicKeyToken=502ed628492ab262, processorArchitecture=MSIL">
+      <HintPath>packages\SQLitePCLRaw.bundle_green.2.0.7\lib\net461\SQLitePCLRaw.nativelibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.provider.dynamic_cdecl, Version=2.0.7.1395, Culture=neutral, PublicKeyToken=b68184102cba0b3b, processorArchitecture=MSIL">
+      <HintPath>packages\SQLitePCLRaw.provider.dynamic_cdecl.2.0.7\lib\netstandard2.0\SQLitePCLRaw.provider.dynamic_cdecl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Configuration.ConfigurationManager.5.0.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SqlClient.4.8.3\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.DiagnosticSource.5.0.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\System.IdentityModel.Tokens.Jwt.6.8.0\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.AccessControl.5.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Algorithms.4.3.1\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.ProtectedData, Version=4.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.ProtectedData.4.5.0\lib\net461\System.Security.Cryptography.ProtectedData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Permissions.5.0.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.5.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.4.7.2\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Json.4.6.0\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ayarlarFormu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ayarlarFormu.Designer.cs">
+      <DependentUpon>ayarlarFormu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cikisFormu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cikisFormu.Designer.cs">
+      <DependentUpon>cikisFormu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cPaketler.cs" />
+    <Compile Include="formtest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formtest.designer.cs">
+      <DependentUpon>formtest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBill.Designer.cs">
+      <DependentUpon>frmBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="girisFormu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="girisFormu.Designer.cs">
+      <DependentUpon>girisFormu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="kasaFormu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="kasaFormu.Designer.cs">
+      <DependentUpon>kasaFormu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="kilitFormu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="kilitFormu.Designer.cs">
+      <DependentUpon>kilitFormu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="masaFormu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="masaFormu.Designer.cs">
+      <DependentUpon>masaFormu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="menuFormu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="menuFormu.Designer.cs">
+      <DependentUpon>menuFormu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="musterilerFormu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="musterilerFormu.Designer.cs">
+      <DependentUpon>musterilerFormu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mutfakFormu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mutfakFormu.Designer.cs">
+      <DependentUpon>mutfakFormu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="raporlarFormu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="raporlarFormu.Designer.cs">
+      <DependentUpon>raporlarFormu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rezFormu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rezFormu.Designer.cs">
+      <DependentUpon>rezFormu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="s.cs" />
+    <Compile Include="sAdisyon.cs" />
+    <Compile Include="siparisFormu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="siparisFormu.Designer.cs">
+      <DependentUpon>siparisFormu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sMasa.cs" />
+    <Compile Include="sOdeme.cs" />
+    <Compile Include="sPersonelHareketleri.cs" />
+    <Compile Include="sPersoneller.cs" />
+    <Compile Include="sRezervasyon.cs" />
+    <Compile Include="sSiparis.cs" />
+    <Compile Include="sUrunCesitleri.cs" />
+    <EmbeddedResource Include="formtest.resx">
+      <DependentUpon>formtest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBill.resx">
+      <DependentUpon>frmBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="girisFormu.resx">
+      <DependentUpon>girisFormu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="masaFormu.resx">
+      <DependentUpon>masaFormu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="menuFormu.resx">
+      <DependentUpon>menuFormu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="musterilerFormu.resx">
+      <DependentUpon>musterilerFormu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rezFormu.resx">
+      <DependentUpon>rezFormu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="siparisFormu.resx">
+      <DependentUpon>siparisFormu.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newrezervemasa2.jpg" />
+    <None Include="Resources\newrezervemasa.jpg" />
+    <None Include="Resources\newdolumasa.jpg" />
+    <None Include="Resources\masa.JPG" />
+    <None Include="Resources\rezervemasa.jpg" />
+    <None Include="Resources\dolumasa.jpg" />
+    <None Include="Resources\bosmasa.jpg" />
+    <None Include="Resources\acıkrezerve.jpg" />
+    <None Include="Resources\autumn-in-the-park-hd-wallpaper-preview.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\masalar.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rez.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paket.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\müşteriler.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kasa.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ekran Alıntısı.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mutfak.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kapat.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kilitle.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ayarlar.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\raporlar.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BABEN.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BABENBACK.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\babengiriş.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\babengiriş1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\babenmenuback.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled-1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mutfaknew.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mutfaknew1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mutfakyeni.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\asdasdasdasdasdas.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\masason.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\masason2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arkaplanmenu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arkaplanmenu1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paketsiparisnw.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paketsiparisnew2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\veriler.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\masababenyeni.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mutfakbabenyeni.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rezbabenyeni.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paketsiparişbaben.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\raporlarbaben.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kasababen.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\müşteribaben.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ayarlarbaben.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exitbaben.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\babenkilit.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spotifybaben.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\babengirişson.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\babenmenuarkaplan.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\babengirişson2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="babenlogopng.ico" />
+    <Content Include="resim_2022-02-18_233112.ico" />
+    <None Include="Resources\1.jpg" />
+    <None Include="Resources\jpeg.jpg" />
+    <None Include="Resources\CİKİSSSYAP.JPG" />
+    <None Include="Resources\pngwing.com %285%29.jpg" />
+    <None Include="Resources\Red_Red.svg.png" />
+    <None Include="Resources\wallpaperbetter %281%291.jpg" />
+    <None Include="Resources\wallpaperbetter %281%29.jpg" />
+    <None Include="Resources\wallpaperbetter.jpg" />
+    <None Include="Resources\Untitled-2.jpg3.jpg" />
+    <None Include="Resources\Untitled-2.jpg" />
+    <None Include="Resources\babenarkaplanmenu.jpg" />
+    <None Include="Resources\babengirişson21.jpg" />
+    <None Include="Resources\babengirişson3.jpg" />
+    <None Include="Resources\babenlogo.JPG" />
+    <None Include="Resources\babenlogopng.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\Microsoft.Data.SqlClient.SNI.4.0.0\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('packages\Microsoft.Data.SqlClient.SNI.4.0.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Bu proje bu bilgisayarda olmayan NuGet paketlerine başvuru yapıyor. Bunları indirmek için NuGet Paket Geri Yükleme'yi kullanın. Daha fazla bilgi için, bkz. http://go.microsoft.com/fwlink/?LinkID=322105. Eksik dosya: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.Data.SqlClient.SNI.4.0.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.Data.SqlClient.SNI.4.0.0\build\net46\Microsoft.Data.SqlClient.SNI.targets'))" />
+    <Error Condition="!Exists('packages\SQLitePCLRaw.lib.e_sqlite3.2.0.7\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\SQLitePCLRaw.lib.e_sqlite3.2.0.7\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets'))" />
+  </Target>
+  <Import Project="packages\SQLitePCLRaw.lib.e_sqlite3.2.0.7\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets" Condition="Exists('packages\SQLitePCLRaw.lib.e_sqlite3.2.0.7\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets')" />
+</Project>
