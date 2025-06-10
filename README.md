@@ -1,2 +1,1 @@
-# bill-and-stock-tracking-program-Unfinished-
-A bill program that can create a table. It can also track stock.
+A program that is not completely finished. Win SQL server was used. I am sharing the database. You can create a table through the program and receive customers with reservations or normally. Or you can use the stock tracking application.
